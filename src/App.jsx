@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import PageWrapper from './components/layout/PageWrapper';
 import ProtectedRoute from './components/admin/ProtectedRoute';
@@ -27,6 +27,7 @@ function App() {
           </Route>
 
           {/* Admin Login (no layout chrome) */}
+          <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
           <Route path="/admin/login" element={<Login />} />
 
           {/* Admin Routes (protected) */}
